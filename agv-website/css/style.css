@@ -1,0 +1,226 @@
+:root {
+    --primary-color: #007AFF;
+    --dark-bg: #050505;
+    --card-bg: #121212;
+    --text-main: #ffffff;
+    --text-gray: #888888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', "Microsoft YaHei", sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* 导航 */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-cta {
+    background: var(--primary-color);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* 首页大图区修复 */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #050505 100%);
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.badge {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.hero p {
+    color: var(--text-gray);
+    margin-bottom: 40px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* 按钮通用 */
+.cta-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.secondary-button {
+    border: 1px solid #444;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+}
+
+/* 列表与卡片 */
+.features {
+    padding: 100px 10%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #222;
+}
+
+/* 1. 优化所有板块的上下间距，解决“太近”的问题 */
+section {
+    padding: 120px 10%;
+    /* 增加到 120px，拉开呼吸感 */
+}
+
+/* 2. 优化产品矩阵布局，解决“盒子太长”的问题 */
+.products {
+    background: #0c0c0c;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    /* 核心修改：设置最大列宽，防止卡片横向无限拉长 */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
+    gap: 40px;
+    justify-content: center;
+    /* 居中显示卡片 */
+    margin-top: 50px;
+}
+
+.product-item {
+    background: var(--dark-bg);
+    border-radius: 20px;
+    border: 1px solid #222;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* 纵向排列 */
+    text-align: left;
+    /* 文字恢复左对齐 */
+    transition: 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.product-img {
+    width: 100%;
+    height: 250px;
+    /* 固定高度，不再随屏幕变窄而变形 */
+    background: #1a1a1a;
+}
+
+.product-info {
+    padding: 30px;
+}
+
+/* 3. 优化表单盒子的外边距 */
+.contact {
+    padding-top: 150px;
+    /* 专门给表单板块加更多的顶部间距 */
+}
+
+.contact-box {
+    max-width: 650px;
+    /* 稍微调大一点点更显大气 */
+    margin: 0 auto;
+    background: #111;
+    padding: 60px;
+    border-radius: 30px;
+    border: 1px solid #1a1a1a;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+form {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 8px;
+}
+
+footer {
+    padding: 40px;
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 12px;
+}
